@@ -1,0 +1,44 @@
+<h1>Редактирование новости</h1>
+
+<%= form_with(model: @news, local: true) do |form| %>
+  <% if @news.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@news.errors.count, "ошибка") %> запретили сохранение этой новости:</h2>
+      <ul>
+        <% @news.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, 'Заголовок:' %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :content, 'Содержание:' %><br>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.label :published, 'Опубликовано:' %><br>
+    <%= form.check_box :published %>
+  </div>
+
+  <div>
+    <%= form.label :image, 'Изображение:' %><br>
+    <%= form.file_field :image %><br>
+    <% if @news.image? %>
+      <p>Текущее изображение:</p>
+      <%= image_tag @news.image.url %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit "Сохранить новость" %>
+  </div>
+<% end %>
+
+<%= link_to 'Вернуться к списку новостей', news_index_path %>

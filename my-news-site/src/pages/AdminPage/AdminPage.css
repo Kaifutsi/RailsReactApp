@@ -1,0 +1,75 @@
+.admin-page {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.admin-page h1 {
+  color: #000;
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.admin-page div {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.admin-page h2 {
+  color: #014083;
+  font-size: 1.5em;
+}
+
+.admin-page p {
+  color: #666;
+  font-size: 1em;
+  margin-top: 0px;
+}
+
+.admin-page li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.admin-page ul {
+  padding: 0px;
+}
+
+.admin-page li p {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.admin-page img {
+  max-width: 200px;
+  margin-right: 20px;
+  height: auto;
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+.admin-page input[type="text"], .admin-page input[type="date"], .admin-page textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+
+.admin-page button {
+  padding: 5px 10px;
+  background-color: #014083;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.admin-page button:hover {
+  background-color: #012e5b;
+}

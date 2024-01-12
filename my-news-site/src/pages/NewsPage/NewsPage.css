@@ -1,0 +1,73 @@
+.newspage {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.newspage h1 {
+  color: #000;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.newspage p {
+  font-size: 1em;
+  color: #666;
+}
+
+.newspage .image-container {
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+}
+
+.newspage img {
+  margin: 20px;
+  max-width: 50%;
+  height: auto;
+  border: 1px solid #ddd;
+  padding: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.newspage img:hover {
+  transform: scale(1.1);
+}
+
+.newspage button {
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #014083;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.newspage button:hover {
+  background-color: #012e5b;
+}
+
+.newspage button, .newspage .button-link {
+  padding: 10px;
+  margin-right: 10px;
+  background-color: #014083;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.newspage button:hover, .newspage .button-link:hover {
+  background-color: #012e5b;
+}

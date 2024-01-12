@@ -1,0 +1,29 @@
+<h1>Список новостей</h1>
+<%= link_to 'Добавить новость', new_news_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Заголовок</th>
+      <th>Содержание</th>
+      <th>Опубликовано</th>
+      <th>Изображение</th>
+      <th>Действия</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @news.each do |news_item| %>
+      <tr>
+        <td><%= news_item.title %></td>
+        <td><%= news_item.content %></td>
+        <td><%= news_item.published ? 'Да' : 'Нет' %></td>
+        <td>
+          <%= image_tag(news_item.image.url) if news_item.image? %>
+        </td>
+        <td>
+          <%= link_to 'Редактировать', edit_news_path(news_item) %>
+          <%= link_to 'Удалить', news_item, method: :delete, data: { confirm: 'Вы уверены?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

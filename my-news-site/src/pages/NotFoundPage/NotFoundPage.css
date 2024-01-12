@@ -1,0 +1,22 @@
+.not-found-page {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  max-width: 600px;
+  margin: 40px auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.not-found-page h1 {
+  color: #0056b3;
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+.not-found-page p {
+  font-size: 1.2em;
+  color: #666;
+}

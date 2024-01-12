@@ -1,0 +1,90 @@
+.news-list-page {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.news-list-page h1 {
+  color: #000;
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.news-list-page .news-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid #eee;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.news-list-page .news-item:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.news-list-page h2 {
+  color: #014083;
+  font-size: 1.5em;
+  flex: 1;
+}
+
+.news-list-page p {
+  color: #666;
+  font-size: 1em;
+  flex: 2;
+  margin-right: 20px;
+  margin-bottom: 10;
+}
+
+.news-list-page img {
+  max-width: 250px;
+  height: auto;
+  border: 1px solid #ddd;
+  padding: 5px;
+  flex: 1;
+  align-self: center;
+  margin-right: 20px;
+  margin-left: 40px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.news-list-page img:hover {
+  transform: scale(1.1);
+}
+
+.news-list-page input[type="date"] {
+  margin-right: 10px;
+}
+
+.news-list-page button {
+  padding: 5px 10px;
+  background-color: #014083;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.news-list-page button:hover {
+  background-color: #012e5b;
+}
+
+.news-list-page .back-button {
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #014083;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.news-list-page .back-button:hover {
+  background-color: #012e5b;
+}
