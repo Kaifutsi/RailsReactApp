@@ -19,7 +19,7 @@ const NewsPage = () => {
   };
 
   const handleHomeClick = () => {
-    navigate('/');
+    navigate('/', { state: { scrollToTitle: true } });
   };
 
   return (

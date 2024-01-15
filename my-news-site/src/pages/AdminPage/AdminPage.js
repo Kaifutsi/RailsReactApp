@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './AdminPage.css';
+import { useNavigate } from 'react-router-dom';
 
 
 const AdminPage = () => {
@@ -11,6 +12,8 @@ const AdminPage = () => {
   const [image, setImage] = useState(null);
   const [editing, setEditing] = useState(false);
   const [currentNewsId, setCurrentNewsId] = useState(null);
+  const [saveSuccess, setSaveSuccess] = useState(false);
+  const navigate = useNavigate();
 
   const imageInputRef = useRef(null);
 
@@ -62,6 +65,10 @@ const AdminPage = () => {
         if (imageInputRef.current) {
           imageInputRef.current.value = '';
         }
+        setSaveSuccess(true);
+        setTimeout(() => {
+          setSaveSuccess(false);
+        }, 3000);
       }
     } catch (error) {
       console.error('Error creating/updating news:', error);
@@ -107,6 +114,10 @@ const AdminPage = () => {
     fetchNews();
   }, []);
 
+  const handleBack = () => {
+    navigate('/', { state: { scrollToTitle: true } });
+  };
+
   return (
     <div className="admin-page">
       <h1>Панель администратора</h1>
@@ -133,6 +144,11 @@ const AdminPage = () => {
       </div>
       <button onClick={createOrUpdateNews}>Сохранить</button>
       {editing && (<button onClick={cancelEdit}>Отмена</button>)}
+      {saveSuccess && (
+      <div className="success-message">
+        Сохранено успешно!
+      </div>
+      )}
 
       <h2>Список новостей</h2>
       <ul>
@@ -140,12 +156,17 @@ const AdminPage = () => {
           <li key={item.id}>
             <strong>{item.title}</strong>
             <p>{item.content}</p>
-            {item.image && item.image.url && (<img src={`http://localhost:3001${item.image.url}`} alt={item.title} />)}
+            {item.image && item.image.url ? (
+              <img src={`http://localhost:3001${item.image.url}`} alt={item.title} />
+            ) : (
+              <div className="no-image">Нет изображения</div>
+            )}
             <button onClick={() => startEditNews(item)}>Редактировать</button>
             <button onClick={() => deleteNews(item.id)}>Удалить</button>
           </li>
         ))}
       </ul>
+      <button onClick={handleBack} className="back-button">Назад</button>
     </div>
   );
 };

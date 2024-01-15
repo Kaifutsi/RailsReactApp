@@ -1,9 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import './HomePage.css';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const HomePage = () => {
   const canvasRef = useRef(null);
+  const titleRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -103,11 +106,15 @@ const HomePage = () => {
       mouse.y = undefined;
     });
 
-  }, []);
+    if (location.state?.scrollToTitle) {
+      titleRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+  }, [location]);
 
   return (
     <div className="homepage">
-      <h1>Добро пожаловать на наш новостной сайт!</h1>
+      <h1 ref={titleRef}>Добро пожаловать на наш новостной сайт!</h1>
       <p>Здесь вы найдете самые интересные новости.</p>
       <Link to="/news">Перейти к списку новостей</Link>
       <Link to="/admin">Вход в админ панель</Link>

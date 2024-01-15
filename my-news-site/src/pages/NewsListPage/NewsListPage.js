@@ -27,7 +27,7 @@ const NewsListPage = () => {
   }, [fetchNews, startDate, endDate]);
 
   const handleHome = () => {
-    navigate('/');
+    navigate('/', { state: { scrollToTitle: true } });
   };
 
   return (
