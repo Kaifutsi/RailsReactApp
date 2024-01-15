@@ -14,6 +14,7 @@ const AdminPage = () => {
   const [currentNewsId, setCurrentNewsId] = useState(null);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const navigate = useNavigate();
+  const [deleteSuccessful, setDeleteSuccessful] = useState(false);
 
   const imageInputRef = useRef(null);
 
@@ -82,6 +83,8 @@ const AdminPage = () => {
       });
 
       if (response.ok) {
+        setDeleteSuccessful(true);
+        setTimeout(() => setDeleteSuccessful(false), 3000);
         await fetchNews();
       }
     } catch (error) {
@@ -108,6 +111,7 @@ const AdminPage = () => {
     setImage(null);
     setCurrentNewsId(newsItem.id);
     setEditing(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -165,6 +169,11 @@ const AdminPage = () => {
             <button onClick={() => deleteNews(item.id)}>Удалить</button>
           </li>
         ))}
+        {deleteSuccessful && (
+        <div className="success-message">
+          Новость успешно удалена!
+        </div>
+        )}
       </ul>
       <button onClick={handleBack} className="back-button">Назад</button>
     </div>
