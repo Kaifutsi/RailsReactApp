@@ -8,7 +8,8 @@ const AdminPage = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [published, setPublished] = useState(true);
-  const [publishDate, setPublishDate] = useState('');
+  const today = new Date().toISOString().split('T')[0];
+  const [publishDate, setPublishDate] = useState(today);
   const [image, setImage] = useState(null);
   const [editing, setEditing] = useState(false);
   const [currentNewsId, setCurrentNewsId] = useState(null);
@@ -103,7 +104,7 @@ const AdminPage = () => {
     setPublished(true);
     setPublishDate('');
     setImage(null);
-
+    setPublishDate(today);
     setEditing(false);
     setCurrentNewsId(null);
   };
