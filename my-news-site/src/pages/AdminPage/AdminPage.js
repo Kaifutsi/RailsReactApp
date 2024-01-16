@@ -31,6 +31,11 @@ const AdminPage = () => {
   };
 
   const createOrUpdateNews = async () => {
+    if (!title.trim() || !content.trim() || !publishDate.trim()) {
+      alert('Пожалуйста, заполните все обязательные поля: заголовок, содержание и дата публикации.');
+      return;
+    }
+
     const formData = new FormData();
     formData.append('news[title]', title);
     formData.append('news[content]', content);
@@ -107,7 +112,10 @@ const AdminPage = () => {
     setTitle(newsItem.title);
     setContent(newsItem.content);
     setPublished(newsItem.published);
-    setPublishDate(newsItem.publish_date);
+
+    const formattedDate = newsItem.publish_date.split('T')[0];
+    setPublishDate(formattedDate);
+
     setImage(null);
     setCurrentNewsId(newsItem.id);
     setEditing(true);
